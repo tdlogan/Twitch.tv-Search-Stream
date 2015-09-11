@@ -6,16 +6,20 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
   <body>
-    <!-- We will need two major sections here: Search Header and Stream List-->
     <!-- Search Header -->
     <div id="searchHeader">
-      <!-- This search header will contain a form for submission to api -->
       <input type="text" id="queryInput" placeholder="Search query..."></input>
       <button id="querySubmit">Search</button>
     </div>
+    <!-- Streams List -->
     <div id="streamList">
-      <!-- This part is a bit more complicated. We need two items at the top: a results total and a page changer -->
-      <!-- After those parts we need to have 5 streams represented with image, display name, game name, stream description -->
+      <span>Total Results: <span id="streamCount">0</span></span>
+      <span id="pageSwitch">
+        <span>&#x25c0;</span>
+        <span>1/10</span>
+        <span>&#x25b6;</span>
+      </span>
+      <div id="listBody"></div>
     </div>
   </body>
   <script src="js/queries.js"></script>
