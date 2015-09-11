@@ -1,0 +1,11 @@
+/*** SEARCH HEADER STYLES ***/
+
+#searchHeader {
+  margin: 5% 18%;
+  padding: 4% 2% 2% 2%;
+  border: solid black 1px;
+}
+
+#queryInput {
+  width: 15%;
+}
