@@ -1,5 +1,16 @@
+//Created my own simple element selector to prevent writing document.getElement... a lot
+var $ = function(element) {
+  if (element[0] === "#") { 
+    return document.getElementById(element.slice(1))
+  } else if (element[0] === ".") { 
+    return document.getElementsByClassName(element.slice(1))
+  }else { 
+    return document.getElementByTagName(element)
+  };
+}
+
 var setStreamCount = function(data) {
-  document.getElementById("streamCount").innerText = data._total;
+  $("#streamCount").innerText = data._total;
 }
 
 var loadStreamsList = function(data) {
@@ -10,7 +21,7 @@ var appendStreamData = function(data) {
   var streamBlock = document.createElement("div");
   streamBlock.classList.add("streamBlocks");
   
-  //Appending images will be treated a little differently
+  //Appending images will be treated a little differently since we need to set the src attribute
   var streamImage = document.createElement("img");
   streamImage.src = data.preview.medium;
   streamBlock.appendChild(streamImage);
@@ -35,24 +46,33 @@ var appendingHelper = function(appendingElement, tagName, data) {
   appendingElement.appendChild(newElement);
 }
 
-var clearStreams = function(element) {
+var clearStreamList = function() {
   while (streamList.lastChild) {
       streamList.removeChild(streamList.lastChild);
   }
 }
 
+var newStreamReset = function() {
+  streamData = null;
+  $("#currentPage").innerText = 1
+}
+
 var setPageLimit = function(data) {
-  var pageLimit = document.getElementById("pageLimit").innerText = Math.ceil(data._total/10);
+  var pageLimit = $("#pageLimit").innerText = Math.ceil(data._total/10);
+}
+
+var disableButtons = function() {
+  
 }
 
 //Major refactors here too
 var setPageNumber = function(direction) {
-  var currentValue = document.getElementById("currentPage").innerText;
+  var currentValue = $("#currentPage").innerText;
   if (direction === "next") { 
-    document.getElementById("currentPage").innerHTML = JSON.parse(currentValue) + 1;
+    $("#currentPage").innerText = JSON.parse(currentValue) + 1;
   }
   if (direction === "prev") {
-    document.getElementById("currentPage").innerText = JSON.parse(currentValue) - 1;
+    $("#currentPage").innerText = JSON.parse(currentValue) - 1;
   }
 }
 
