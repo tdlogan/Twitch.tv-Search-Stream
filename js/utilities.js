@@ -58,11 +58,21 @@ var newStreamReset = function() {
 }
 
 var setPageLimit = function(data) {
-  var pageLimit = $("#pageLimit").innerText = Math.ceil(data._total/10);
+  $("#pageLimit").innerText = Math.ceil(data._total/10);
 }
 
-var disableButtons = function() {
-  
+var checkButtonAvailability = function() {
+  if ($("#currentPage").innerText !== $("#pageLimit").innerText) {
+    $("#forwardNav").disabled = false;
+  } else {
+    $("#forwardNav").disabled = true;
+  }
+
+  if ($("#currentPage").innerText === "1") {
+    $("#backwardNav").disabled = true;
+  } else {
+    $("#backwardNav").disabled = false;
+  }
 }
 
 //Major refactors here too
