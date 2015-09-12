@@ -9,6 +9,8 @@ var $ = function(element) {
   };
 }
 
+// Twitch Query Utility Functions //
+
 var setStreamCount = function(data) {
   $("#streamCount").innerText = data._total;
 }
@@ -27,14 +29,14 @@ var appendStreamData = function(data) {
   streamBlock.appendChild(streamImage);
 
   //Creating a span to append the data elements to
-  var streamData = document.createElement("span");
+  var streamInfo = document.createElement("span");
 
-  appendingHelper(streamData, "h1", data.channel.display_name);
-  appendingHelper(streamData, "span", data.channel.game);
-  appendingHelper(streamData, "span", " - " + data.viewers + " viewers");
-  appendingHelper(streamData, "p", data.channel.status);
+  appendingHelper(streamInfo, "h1", data.channel.display_name);
+  appendingHelper(streamInfo, "span", data.channel.game);
+  appendingHelper(streamInfo, "span", " - " + data.viewers + " viewers");
+  appendingHelper(streamInfo, "p", data.channel.status);
 
-  streamBlock.appendChild(streamData);
+  streamBlock.appendChild(streamInfo);
   streamList.appendChild(streamBlock);
 
 }
@@ -61,6 +63,11 @@ var setPageLimit = function(data) {
   $("#pageLimit").innerText = Math.ceil(data._total/10);
 }
 
+var tempNavDisable = function() {
+  $("#forwardNav").disabled = true;
+  $("#backwardNav").disabled = true;
+}
+
 var checkButtonAvailability = function() {
   if ($("#currentPage").innerText !== $("#pageLimit").innerText) {
     $("#forwardNav").disabled = false;
@@ -75,7 +82,6 @@ var checkButtonAvailability = function() {
   }
 }
 
-//Major refactors here too
 var setPageNumber = function(direction) {
   var currentValue = $("#currentPage").innerText;
   if (direction === "next") { 
