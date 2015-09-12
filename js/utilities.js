@@ -1,21 +1,21 @@
 //Created my own simple element selector to prevent writing document.getElement... a lot
 var $ = function(element) {
   if (element[0] === "#") { 
-    return document.getElementById(element.slice(1))
+    return document.getElementById(element.slice(1));
   } else if (element[0] === ".") { 
-    return document.getElementsByClassName(element.slice(1))
+    return document.getElementsByClassName(element.slice(1));
   }else { 
-    return document.getElementByTagName(element)
-  };
-}
+    return document.getElementByTagName(element);
+  }
+};
 
 var setStreamCount = function(data) {
   $("#streamCount").innerText = data._total;
-}
+};
 
 var loadStreamsList = function(data) {
   data.streams.forEach(appendStreamData);
-}
+};
 
 var appendStreamData = function(data) {
   var streamBlock = document.createElement("div");
@@ -37,29 +37,29 @@ var appendStreamData = function(data) {
   streamBlock.appendChild(streamData);
   streamList.appendChild(streamBlock);
 
-}
+};
 
 var appendingHelper = function(appendingElement, tagName, data) {
   var newElement = document.createElement(tagName);
   var tagData = document.createTextNode(data);
   newElement.appendChild(tagData);
   appendingElement.appendChild(newElement);
-}
+};
 
 var clearStreamList = function() {
   while (streamList.lastChild) {
       streamList.removeChild(streamList.lastChild);
   }
-}
+};
 
 var newStreamReset = function() {
   streamData = null;
-  $("#currentPage").innerText = 1
-}
+  $("#currentPage").innerText = 1;
+};
 
 var setPageLimit = function(data) {
   $("#pageLimit").innerText = Math.ceil(data._total/10);
-}
+};
 
 var checkButtonAvailability = function() {
   if ($("#currentPage").innerText !== $("#pageLimit").innerText) {
@@ -73,7 +73,7 @@ var checkButtonAvailability = function() {
   } else {
     $("#backwardNav").disabled = false;
   }
-}
+};
 
 //Major refactors here too
 var setPageNumber = function(direction) {
@@ -84,7 +84,7 @@ var setPageNumber = function(direction) {
   if (direction === "prev") {
     $("#currentPage").innerText = JSON.parse(currentValue) - 1;
   }
-}
+};
 
 
 

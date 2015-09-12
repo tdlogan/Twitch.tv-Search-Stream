@@ -27,4 +27,4 @@ var getTwitchData = function(page) {
   };
   
   twitchQuery.send();
-}
+};
