@@ -12,6 +12,10 @@
 }
 
 /*** STREAM LIST STYLES ***/
+.navArrows:hover {
+  cursor: pointer;
+}
+
 #streamList {
   margin: 0 18% 5%;
   padding: 0.5% 2% 1%;

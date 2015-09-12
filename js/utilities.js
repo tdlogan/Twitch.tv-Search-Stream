@@ -4,10 +4,6 @@ var setStreamCount = function(data) {
 }
 
 var loadStreamsList = function(data) {
-  // //We want to grab the 5 streams
-  // for (var i = 0; i < 5; i++) {
-  //   appendStreamData(data.streams[i]);
-  // }
   data.streams.forEach(appendStreamData);
 }
 
@@ -41,9 +37,27 @@ var appendingHelper = function(appendingElement, tagName, data) {
 }
 
 var clearStreams = function() {
-  while (streamList.firstChild) {
-      //The list is LIVE so it will re-index each call
-      streamList.removeChild(streamList.firstChild);
+  while (streamList.lastChild) {
+      //This could be more efficient. This will reindex each child
+      streamList.removeChild(streamList.lastChild);
   }
 }
+
+var setPageLimit = function(data) {
+  var pageLimit = document.getElementById("pageLimit").innerText = Math.ceil(data._total/10);
+}
+
+//Major refactors here too
+var setPageNumber = function(direction) {
+  var currentValue = document.getElementById("currentPage").innerText;
+  if (direction === "next") { 
+    document.getElementById("currentPage").innerText = JSON.parse(currentValue) + 1;
+  }
+  if (direction === "previous") {
+    document.getElementById("currentPage").innerText = currentValue - 1;
+  }
+}
+
+
+
 
