@@ -1,4 +1,3 @@
-// THIS WILL BE MOVED TO A UTILITIES FILE
 var setStreamCount = function(data) {
   document.getElementById("streamCount").innerText = data._total;
 }
@@ -36,9 +35,8 @@ var appendingHelper = function(appendingElement, tagName, data) {
   appendingElement.appendChild(newElement);
 }
 
-var clearStreams = function() {
+var clearStreams = function(element) {
   while (streamList.lastChild) {
-      //This could be more efficient. This will reindex each child
       streamList.removeChild(streamList.lastChild);
   }
 }
@@ -51,10 +49,10 @@ var setPageLimit = function(data) {
 var setPageNumber = function(direction) {
   var currentValue = document.getElementById("currentPage").innerText;
   if (direction === "next") { 
-    document.getElementById("currentPage").innerText = JSON.parse(currentValue) + 1;
+    document.getElementById("currentPage").innerHTML = JSON.parse(currentValue) + 1;
   }
-  if (direction === "previous") {
-    document.getElementById("currentPage").innerText = currentValue - 1;
+  if (direction === "prev") {
+    document.getElementById("currentPage").innerText = JSON.parse(currentValue) - 1;
   }
 }
 
