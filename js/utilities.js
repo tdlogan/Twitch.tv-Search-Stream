@@ -1,14 +1,7 @@
 var $ = function(element) {
-  if (element[0] === "#") { 
-    return document.getElementById(element.slice(1));
-  } else if (element[0] === ".") { 
-    return document.getElementsByClassName(element.slice(1));
-  }else { 
-    return document.getElementsByTagName(element);
-  }
-};
+  return document.getElementById(element.slice(1));
+}
 // Twitch Query Utility Functions //
-
 var clearStreamList = function() {
   while (streamList.lastChild) {
       streamList.removeChild(streamList.lastChild);
@@ -17,58 +10,43 @@ var clearStreamList = function() {
 
 var clearSearchBar = function() {
   $("#queryInput").value = "";
-};
+}
 
 var newStreamReset = function() {
   streamData = null;
-  $(".currentPage").innerText = 1;
+  $("#currentPage").innerText = 1;
 };
 
 var tempNavDisable = function() {
   $("#forwardNav").disabled = true;
   $("#backwardNav").disabled = true;
-  $("#mobileForwardNav").disabled = true;
-  $("#mobileBackwardNav").disabled = true;
 };
 
 var checkButtonAvailability = function() {
-
-  console.log($("#topCurrentPage").innerText);
-  console.log($("#bottomCurrentPage").innerText);
-
-  if ($("#topCurrentPage").innerText !== $("#topPageLimit").innerText) {
+  if ($("#currentPage").innerText !== $("#pageLimit").innerText) {
     $("#forwardNav").disabled = false;
-    $("#mobileForwardNav").disabled = false;
   } else {
     $("#forwardNav").disabled = true;
-    $("#mobileForwardNav").disabled = true;
   }
 
-  if ($("#topCurrentPage").innerText == 1) {
+  if ($("#currentPage").innerText == 1) {
     $("#backwardNav").disabled = true;
-    $("#mobileBackwardNav").disabled = true;
   } else {
     $("#backwardNav").disabled = false;
-    $("#mobileBackwardNav").disabled = false;
   }
 };
 
 var setPageLimit = function(data) {
-  var pageLimit = Math.ceil(data._total/10);
-  $("#topPageLimit").innerText = pageLimit;
-  $("#bottomPageLimit").innerText = pageLimit;
+  $("#pageLimit").innerText = Math.ceil(data._total/10);
 };
 
 var setPageNumber = function(direction) {
-  var currentValue = $("#topCurrentPage").innerText;
-  console.log($("#topCurrentPage").innerText);
+  var currentValue = $("#currentPage").innerText;
   if (direction === "next") { 
-    $("#topCurrentPage").innerText = JSON.parse(currentValue) + 1;
-    $("#bottomCurrentPage").innerText = JSON.parse(currentValue) + 1;
+    $("#currentPage").innerText = JSON.parse(currentValue) + 1;
   }
   if (direction === "prev") {
-    $("#topCurrentPage").innerText = JSON.parse(currentValue) - 1;
-    $("#bottomCurrentPage").innerText = JSON.parse(currentValue) + 1;
+    $("#currentPage").innerText = JSON.parse(currentValue) - 1;
   }
 };
 
@@ -91,6 +69,7 @@ var appendStreamData = function(data) {
   imgAnchor.target = "_blank";
 
   var streamImage = createElement("img");
+  streamImage.href = data.channel.url;
   streamImage.src = data.preview.large;
 
   var streamInfo = createElement("td", "streamInfo");

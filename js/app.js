@@ -38,7 +38,7 @@ forwardNav.addEventListener("click", function(){getTwitchData("next");}, false);
 forwardNav.addEventListener("click", function(){setPageNumber("next");}, false);
 
 var backwardNav = $("#backwardNav");
-forwardNav.addEventListener("click", function(){getTwitchData("next");}, false);
-forwardNav.addEventListener("click", function(){setPageNumber("next");}, false);
+backwardNav.addEventListener("click", function(){getTwitchData("prev");}, false);
+backwardNav.addEventListener("click", function(){setPageNumber("prev");}, false);
 
 

@@ -104,6 +104,7 @@ body {
 
   #queryInput {
     width: 50%;
+    font-size: 16px;
   }
 
   #querySubmit {
@@ -149,24 +150,6 @@ body {
     border: none;
     border-bottom: 1px solid #eee; 
     position: relative;
-  }
-
-  #mobilePageSwitch {
-    height: 50px;
-    visibility: visible;
-  }
-
-  .mobileNavArrows {
-    font-size: 20px;
-    background-color: #6441A5;
-    color: #F1F1F1;
-    border-style: none; 
-    height: 50px;
-    width: 46%;
-  }
-
-  #streamResults, #pageSwitch {
-    visibility: hidden;
   }
 
   .mobileNavArrows:hover {
