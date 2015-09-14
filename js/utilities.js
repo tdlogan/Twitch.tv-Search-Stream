@@ -15,7 +15,7 @@ var clearSearchBar = function() {
 
 var newStreamReset = function() {
   streamData = null;
-  $("#currentPage").innerText = 1;
+  $(".currentPage").innerText = 1;
 };
 
 var tempNavDisable = function() {
@@ -70,7 +70,7 @@ var appendStreamData = function(data) {
   imgAnchor.target = "_blank";
 
   var streamImage = createElement("img");
-  streamImage.src = data.preview.medium;
+  streamImage.src = data.preview.large;
 
   var streamInfo = createElement("td", "streamInfo");
 
