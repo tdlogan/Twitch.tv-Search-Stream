@@ -3,12 +3,17 @@
 #searchHeader {
   margin: 5% 18% 0;
   padding: 4% 2% 2% 2%;
-  border: solid black 1px;
+  border: solid #6441A5 2px;
   border-bottom: 0;
 }
 
 #queryInput {
+  font-family: 'Oswald', sans-serif;
   width: 15%;
+}
+
+#querySubmit {
+  font-family: 'Oswald', sans-serif;
 }
 
 /*** STREAM LIST STYLES ***/
@@ -23,7 +28,7 @@
 #streamList {
   margin: 0 18% 5%;
   padding: 0.5% 0.5%;
-  border: solid black 1px;
+  border: solid #6441A5 2px;
 }
 
 #pageSwitch {
@@ -38,14 +43,11 @@
 }
 
 .streamBlocks:hover {
-  margin: -1px;
   border: solid #6441A5 2px;
-  background-color: rbga(100, 65, 165, 1);
 }
 
 .streamName {
   font-family: 'Oswald', sans-serif;
-  margin-top: -0.5%;
 }
 
 .gameName, .numberViewers {
@@ -61,7 +63,7 @@
 }
 
 .tableImage {
-  width: 30%;
+  width: 35%;
 }
 
 .tableImage:hover {
