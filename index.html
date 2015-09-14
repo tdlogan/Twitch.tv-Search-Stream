@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Twitch Stream Search</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Montserrat|Fjalla+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
   <body>
     <!-- Search Header -->
     <div id="searchHeader">
-      <input type="text" id="queryInput" placeholder="Search query..."></input>
+      <input type="text" id="queryInput" placeholder="Search query..." onkeydown="if (event.keyCode == 13) document.getElementById('querySubmit').click()"></input>
       <button id="querySubmit">Search</button>
     </div>
     <!-- Streams List -->
@@ -18,7 +20,7 @@
         <span id="currentPage">1</span>/<span id="pageLimit">1</span>
         <button class="navArrows" id="forwardNav" disabled="true">&#x25b6;</button>
       </span>
-      <div id="listBody"></div>
+      <table id="listBody"></table>
     </div>
   </body>
   <script src="js/utilities.js"></script>
