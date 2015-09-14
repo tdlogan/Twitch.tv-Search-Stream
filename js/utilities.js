@@ -20,30 +20,42 @@ var loadStreamsList = function(data) {
 };
 
 var appendStreamData = function(data) {
-  var streamBlock = document.createElement("div");
+
+  var streamBlock = document.createElement("tr");
   streamBlock.classList.add("streamBlocks");
   
   //Appending images will be treated a little differently since we need to set the src attribute
+  var tableImage = document.createElement("td");
+  tableImage.classList.add("tableImage");
+
+  var imgAnchor = document.createElement("a");
+  imgAnchor.href = data.channel.url;
+  imgAnchor.target = "_blank";
+
   var streamImage = document.createElement("img");
   streamImage.src = data.preview.medium;
-  streamBlock.appendChild(streamImage);
+  imgAnchor.appendChild(streamImage);
+  tableImage.appendChild(imgAnchor)
 
   //Creating a span to append the data elements to
-  var streamInfo = document.createElement("span");
+  var streamInfo = document.createElement("td");
+  streamImage.classList.add("streamInfo");
 
-  appendingHelper(streamInfo, "h1", data.channel.display_name);
-  appendingHelper(streamInfo, "span", data.channel.game);
-  appendingHelper(streamInfo, "span", " - " + data.viewers + " viewers");
-  appendingHelper(streamInfo, "p", data.channel.status);
+  appendingHelper(streamInfo, "h2", "streamName", data.channel.display_name);
+  appendingHelper(streamInfo, "span", "gameName", data.channel.game);
+  appendingHelper(streamInfo, "span", "numberViewers", " - " + data.viewers + " viewers");
+  appendingHelper(streamInfo, "p", "description", data.channel.status);
 
+  streamBlock.appendChild(tableImage);
   streamBlock.appendChild(streamInfo);
   streamList.appendChild(streamBlock);
 
 };
 
-var appendingHelper = function(appendingElement, tagName, data) {
+var appendingHelper = function(appendingElement, tagName, tagClass, data) {
   var newElement = document.createElement(tagName);
   var tagData = document.createTextNode(data);
+  newElement.classList.add(tagClass);
   newElement.appendChild(tagData);
   appendingElement.appendChild(newElement);
 };
@@ -75,7 +87,7 @@ var checkButtonAvailability = function() {
     $("#forwardNav").disabled = true;
   }
 
-  if ($("#currentPage").innerText === "1") {
+  if ($("#currentPage").innerText == 1) {
     $("#backwardNav").disabled = true;
   } else {
     $("#backwardNav").disabled = false;
