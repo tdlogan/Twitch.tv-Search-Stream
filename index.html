@@ -9,18 +9,24 @@
   <body>
     <!-- Search Header -->
     <div id="searchHeader">
-      <input type="text" id="queryInput" placeholder="Search query..." onkeydown="if (event.keyCode == 13) document.getElementById('querySubmit').click()"></input>
+      <input type="text" id="queryInput" placeholder="Find a game stream..." onkeydown="if (event.keyCode == 13) document.getElementById('querySubmit').click()"></input>
       <button id="querySubmit">Search</button>
+      <img src="./assets/Twitch_Logo_White.png" id="twitchLogo">
     </div>
     <!-- Streams List -->
     <div id="streamList">
-      <span>Total Results: <span id="streamCount">0</span></span>
+      <span id="streamResults">Total Results: <span id="streamCount">0</span></span>
       <span id="pageSwitch">
         <button class="navArrows" id="backwardNav" disabled="true">&#x25c0;</button>
-        <span id="currentPage">1</span>/<span id="pageLimit">1</span>
+        <span id="topCurrentPage">1</span>/<span id="topPageLimit">1</span>
         <button class="navArrows" id="forwardNav" disabled="true">&#x25b6;</button>
       </span>
       <table id="listBody"></table>
+      <span id="mobilePageSwitch">
+        <button class="mobileNavArrows" id="mobileBackwardNav" disabled="true">&#x25c0;</button>
+        <span id="bottomCurrentPage">1</span>/<span id="bottomPageLimit">1</span>
+        <button class="mobileNavArrows" id="mobileForwardNav" disabled="true">&#x25b6;</button>
+      </span>
     </div>
   </body>
   <script src="js/utilities.js"></script>

@@ -1,10 +1,22 @@
+body {
+  background-color: #262626;
+}
+
 /*** SEARCH HEADER STYLES ***/
 
 #searchHeader {
   margin: 5% 18% 0;
   padding: 4% 2% 2% 2%;
+  background-color: #6441A5;
   border: solid #6441A5 2px;
   border-bottom: 0;
+}
+
+#twitchLogo {
+  margin-top: -4.5%;
+  width:25%;
+  float: right;
+  color: #6441A5;
 }
 
 #queryInput {
@@ -26,6 +38,7 @@
 }
 
 #streamList {
+  background-color: #F1F1F1;
   margin: 0 18% 5%;
   padding: 0.5% 0.5%;
   border: solid #6441A5 2px;
@@ -47,6 +60,7 @@
 }
 
 .streamName {
+  color: #6441A5;
   font-family: 'Oswald', sans-serif;
 }
 
@@ -73,4 +87,94 @@
 .streamBlocks img {
   width: 90%;
   float: left; 
+}
+
+#mobilePageSwitch {
+  visibility: hidden;
+}
+
+/*MOBILE VERSION HERE*/
+
+@media (max-width: 760px)  {
+
+  #searchHeader {
+    margin: 0;
+    padding-top: 8%;
+  }
+
+  #queryInput {
+    width: 50%;
+  }
+
+  #querySubmit {
+    visibility: hidden;
+  }
+
+  #pageSwitch {
+    width: 50%;
+  }
+
+  .navArrows {
+    width: 40%;
+  }
+
+  #streamList {
+    margin: 0;
+  }
+  /* Force table to not be like tables anymore */
+  table, td, tr { 
+    display: block; 
+  }
+  
+  .tableImage {
+    width: 100%;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .tableImage img {
+    width: 100%;
+  }
+
+  .streamName {
+    margin-top: -1%;
+  }
+
+  td { 
+    /* Behave  like a "row" */
+    display: block;
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+  }
+
+  #mobilePageSwitch {
+    height: 50px;
+    visibility: visible;
+  }
+
+  .mobileNavArrows {
+    font-size: 20px;
+    background-color: #6441A5;
+    color: #F1F1F1;
+    border-style: none; 
+    height: 50px;
+    width: 46%;
+  }
+
+  #streamResults, #pageSwitch {
+    visibility: hidden;
+  }
+
+  .mobileNavArrows:hover {
+    cursor: pointer;
+  }
+
+  .streamBlocks:hover {
+    border: none;
+  }
+
 }
