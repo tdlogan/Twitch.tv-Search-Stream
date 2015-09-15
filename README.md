@@ -5,7 +5,9 @@ Link to the live site: http://tdlogan.github.io/
 
 Link to a published Chrome Extension of the app: https://goo.gl/Xx9h6I
 
-The version features a basic responsive styling so it may be comfortably viewed from different window sizes. 
+Link to the Chrome Extension Repo: https://github.com/tdlogan/Twitch.tv-Stream-Search-Extension
+
+The version features a basic responsive styling so it may be comfortably viewed from different window sizes. Also included is a Chrome Extension version that is live on the Chrome Store and can be added to your browser. 
 
 Rules:
 
