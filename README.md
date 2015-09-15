@@ -3,6 +3,8 @@ A basic web app that allows users to search for twitch streams
 
 Link to the live site: http://tdlogan.github.io/
 
+Link to a published Chrome Extension of the app: https://goo.gl/Xx9h6I
+
 The version features a basic responsive styling so it may be comfortably viewed from different window sizes. 
 
 Rules:
